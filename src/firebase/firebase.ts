@@ -15,7 +15,6 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_APP_ID,
 };
 
-console.log(firebaseConfig);
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
@@ -25,7 +24,6 @@ const storage = getStorage();
 type audioPromiseType = (path: string) => Promise<Blob>;
 
 export const getTrackFromStorage: audioPromiseType = async (path) => {
-  console.log(path);
   const storageRef = ref(storage, `${path}/track.mp3`);
   return getBlob(storageRef);
 };
